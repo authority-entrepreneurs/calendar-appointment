@@ -15,10 +15,10 @@ class GoHighLevel:
 
         appointment_url = "https://rest.gohighlevel.com/v1/appointments/"
         payload = {
-            "email":phone,
+            "phone":phone,
             "selectedSlot":apptDate,
             "selectedTimezone":"America/Bahia_Banderas",
-            "calendarId":"ys6QHQsWSyd1NWs8zvJ6_1636724585481"
+            "calendarId":"ys6QHQsWSyd1NWs8zvJ6"
             }
 
         response = requests.request("POST", appointment_url, 
