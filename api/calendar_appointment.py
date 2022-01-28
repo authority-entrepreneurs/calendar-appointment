@@ -8,7 +8,7 @@ class GoHighLevel:
 
     def __init__(self, cred_headers=None):
         self.cred_headers = {
-            'Authorization': 'Bearer f0f13f30-3c7c-4ada-b280-4582344bfec0',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6InBUZ2RKQktqSXptRUtDUG93bGdCIiwiY29tcGFueV9pZCI6IjFJRzJRdmxFYUJPRndYcWtFYUk0IiwidmVyc2lvbiI6MSwiaWF0IjoxNjQzMzg1NzEyNDczLCJzdWIiOiJ0SXcwWGZkd3NycTZ4d2wwckxMcyJ9.QmpzOrgHHY6AnsAVcr2TE7WpbG2Udxp9mD7W-Xn21oQ',
             'Content-Type': 'application/json'
         }
     
