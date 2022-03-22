@@ -14,7 +14,7 @@ def webhook():
         try:
             data = request.args
             phone = data.get('phone')
-            apptDate = data.get('apptDate').split('-0600')[0]+'-06:00'
+            apptDate = data.get('apptDate').split('-0500')[0]+'-05:00'
             response = go_high.post_appointment(phone, apptDate)
             return {
                 "response":response
