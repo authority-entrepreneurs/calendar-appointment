@@ -48,8 +48,8 @@ class GoHighLevel:
         payload = {
             "phone":phone,
             "selectedSlot":apptDate,
-            "selectedTimezone":"America/Bahia_Banderas",
-            "calendarId":"ys6QHQsWSyd1NWs8zvJ6"
+            "selectedTimezone":"America/Chicago",
+            "calendarId":"cwEMboMjvEUHA0bs6atY"
             }
 
         response = requests.request("POST", appointment_url, 
