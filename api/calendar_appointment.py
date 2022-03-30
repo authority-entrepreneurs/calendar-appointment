@@ -49,7 +49,7 @@ class GoHighLevel:
             "phone":phone,
             "selectedSlot":apptDate,
             "selectedTimezone":"America/Chicago",
-            "calendarId":"cwEMboMjvEUHA0bs6atY"
+            "calendarId":"ys6QHQsWSyd1NWs8zvJ6"
             }
 
         response = requests.request("POST", appointment_url, 
