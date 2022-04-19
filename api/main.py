@@ -4,7 +4,7 @@ import re
 from flask import Flask, abort, request
 from flask.json import jsonify
 
-from .calendar_appointment import go_high
+from .calendar_appointment import GoHighLevel
 
 app = Flask(__name__)
 
@@ -15,7 +15,15 @@ def webhook():
             data = request.args
             phone = data.get('phone')
             apptDate = data.get('apptDate').split('-0500')[0]+'-05:00'
-            response = go_high.post_appointment(phone, apptDate)
+            ghl_key = data.get('ghl_key')
+            calendar_id = data.get('calendar_id')
+            if ghl_key or calendar_id is None:
+                return {
+                "message":"Email not Received Successfully",
+                "errors":"Ghl key or calendar id is None"
+                } 
+            gohigh_data = GoHighLevel(headers=ghl_key)
+            response = gohigh_data.post_appointment(phone, apptDate, calendar_id)
             return {
                 "response":response
             }

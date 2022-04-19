@@ -6,9 +6,9 @@ from requests.api import put
 
 class GoHighLevel:
 
-    def __init__(self, cred_headers=None):
+    def __init__(self, headers, cred_headers=None):
         self.cred_headers = {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6InBUZ2RKQktqSXptRUtDUG93bGdCIiwiY29tcGFueV9pZCI6IjFJRzJRdmxFYUJPRndYcWtFYUk0IiwidmVyc2lvbiI6MSwiaWF0IjoxNjQzMzg1NzEyNDczLCJzdWIiOiJ0SXcwWGZkd3NycTZ4d2wwckxMcyJ9.QmpzOrgHHY6AnsAVcr2TE7WpbG2Udxp9mD7W-Xn21oQ',
+            'Authorization': 'Bearer {}'.format(headers),
             'Content-Type': 'application/json'
         }
     
@@ -42,14 +42,14 @@ class GoHighLevel:
         return response.json()
 
 
-    def post_appointment(self, phone, apptDate):
+    def post_appointment(self, phone, apptDate, calendar_id):
 
         appointment_url = "https://rest.gohighlevel.com/v1/appointments/"
         payload = {
             "phone":phone,
             "selectedSlot":apptDate,
             "selectedTimezone":"America/Chicago",
-            "calendarId":"0aquSiqnLaneDiaWToLS"
+            "calendarId":calendar_id
             }
 
         response = requests.request("POST", appointment_url, 
@@ -62,5 +62,3 @@ class GoHighLevel:
             contact_ids, tags = self.get_contact_lookup(new_phone_format)
             put_response = self.put_contact_tags(contact_ids, tags, apptDate)
             return put_response
-
-go_high = GoHighLevel()
