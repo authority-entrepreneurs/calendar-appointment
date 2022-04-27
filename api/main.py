@@ -17,7 +17,7 @@ def webhook():
             apptDate = data.get('apptDate').split('-0500')[0]+'-05:00'
             ghl_key = data.get('ghl_key')
             calendar_id = data.get('calendar_id')
-            if ghl_key or calendar_id is None:
+            if (ghl_key or calendar_id) is None:
                 return {
                 "message":"Email not Received Successfully",
                 "errors":"Ghl key or calendar id is None"
